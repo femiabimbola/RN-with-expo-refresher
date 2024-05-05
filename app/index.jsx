@@ -7,6 +7,7 @@ export default function App() {
     <View style={styles.container}>
       <Text>Welcome, Aora</Text>
       <StatusBar style="auto" />
+      <Link href='/profile' style={{color:'blue'}}> Profile </Link>
     </View>
   );
 }
