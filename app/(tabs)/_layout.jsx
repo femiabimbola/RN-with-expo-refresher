@@ -5,7 +5,7 @@ import {icons} from "../../constants";
 
 const TabIcon = ({icon, color, name, focused}) => {
   return (
-    <View className="items-center justify-center gap-2">
+    <View className="items-center justify-center gap-0 py-2">
       <Image
         source={icon}
         resizeMode="contain"
@@ -14,6 +14,7 @@ const TabIcon = ({icon, color, name, focused}) => {
       />
       <Text
         className={`${focused ? "font-psemibold" : "font-pregular"} text-xs`}
+        style={{color: color}}
       >
         {name}
       </Text>
@@ -24,7 +25,19 @@ const TabIcon = ({icon, color, name, focused}) => {
 const TabLayout = () => {
   return (
     <>
-      <Tabs screenOptions={{tabBarShowLabel: false}}>
+      <Tabs
+        screenOptions={{
+          tabBarShowLabel: false,
+          tabBarActiveTintColor: "#FFA001",
+          tabBarInactiveTintColor: "#CDCDE0",
+          tabBarStyle: {
+            backgroundColor: "#161622",
+            borderTopWidth: 1,
+            borderTopColor: "#232533",
+            height: 55,
+          },
+        }}
+      >
         <Tabs.Screen
           name="home"
           options={{
@@ -56,30 +69,30 @@ const TabLayout = () => {
           }}
         />
         <Tabs.Screen
-          name="home"
+          name="create"
           options={{
             headerShown: false,
-            title: "Home",
+            title: "Create",
             tabBarIcon: ({color, focused}) => (
               <TabIcon
-                icon={icons.home}
+                icon={icons.plus}
                 color={color}
-                name="Home"
+                name="Create"
                 focused={focused}
               />
             ),
           }}
         />
         <Tabs.Screen
-          name="home"
+          name="profile"
           options={{
             headerShown: false,
-            title: "Home",
+            title: "Profile",
             tabBarIcon: ({color, focused}) => (
               <TabIcon
                 icon={icons.home}
                 color={color}
-                name="Home"
+                name="Profile"
                 focused={focused}
               />
             ),
