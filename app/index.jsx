@@ -22,14 +22,14 @@ export default function App() {
           />
           <View className="relative mt-5">
             <Text className={" tex-3xl text-white font-bold text-center"}>
-              Discover Endless Possibilites with{" "}
-              <Text className="text-secondary-200"> Aora</Text>
-              <Image
-                source={images.path}
-                className="w-[136px] h-[15px] absolute -bottom-2 -right-8"
-                resizeMode="contain"
-              />
+              Discover Endless Possibilites with
             </Text>
+            <Text className="text-secondary-200"> Aora</Text>
+            <Image
+              source={images.path}
+              className="w-[136px] h-[15px] absolute -bottom-2 -right-8"
+              resizeMode="contain"
+            />
           </View>
           <Text className="text-green-100 text-sm font-pregular mt-7 text-center">
             Where creativity meets innovation: embark on a journey of limitless
