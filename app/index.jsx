@@ -17,14 +17,14 @@ export default function App() {
           />
           <Image
             source={images.cards}
-            className="h-[300px] w-full max-w-[380px]"
+            className="h-[320px] w-full max-w-[400px]"
             resizeMode="contain"
           />
           <View className="relative mt-5">
-            <Text className={" tex-3xl text-white font-bold text-center"}>
+            <Text className=" text-5xl text-white font-bold text-center">
               Discover Endless Possibilites with
+              <Text className="text-secondary-200"> Aora</Text>
             </Text>
-            <Text className="text-secondary-200"> Aora</Text>
             <Image
               source={images.path}
               className="w-[136px] h-[15px] absolute -bottom-2 -right-8"
@@ -35,7 +35,11 @@ export default function App() {
             Where creativity meets innovation: embark on a journey of limitless
             exploration with Aora
           </Text>
-          <CustomButton />
+          <CustomButton
+            title="Continue with Email"
+            handlePress={() => {}}
+            containerStyle="w-full mt-7"
+          />
         </View>
       </ScrollView>
     </SafeAreaView>
