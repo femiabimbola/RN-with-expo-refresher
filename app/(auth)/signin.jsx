@@ -4,6 +4,7 @@ import {SafeAreaView} from "react-native-safe-area-context";
 import {images} from "../../constants";
 import FormField from "../../components/FormField";
 import CustomButton from "../../components/CustomButton";
+import {Link} from "expo-router";
 
 const SignIn = () => {
   const [form, setForm] = useState({
@@ -11,15 +12,17 @@ const SignIn = () => {
     password: "",
   });
 
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
   const submit = () => {};
   return (
     <SafeAreaView className="bg-primary h-full">
       <ScrollView>
-        <View className="w-full justify-center h-full px-4 my-6">
+        <View className="w-full justify-center min-h-[85vh] px-4 my-6">
           <Image
             source={images.logo}
             resizeMode="contain"
-            className="w-[120px] h-[40px]"
+            className="w-[180px] h-[80px] mx-auto"
           />
           <Text className="text-2xl text-white text-semibold font-psemibold mt-10 ">
             Log in to Aora
@@ -40,7 +43,20 @@ const SignIn = () => {
           <CustomButton
             title={"Sign In"}
             handlePress={submit}
+            containerStyle="mt-10"
+            isLoading={isSubmitting}
           />
+          <View className="justify-center pt-5 flex-row gap-2">
+            <Text className="text-lg text-gray-100 font-pregular">
+              Don't have an account?
+            </Text>
+            <Link
+              href={"/signup"}
+              className="text-lg font-psemibold text-secondary"
+            >
+              Sign Up
+            </Link>
+          </View>
         </View>
       </ScrollView>
     </SafeAreaView>
