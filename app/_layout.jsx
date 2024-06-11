@@ -26,6 +26,7 @@ const RootLayout = () => {
   if (!fontsLoaded && !error) return null;
 
   return (
+    // disabling the router gtoup
     <Stack>
       <Stack.Screen
         name="index"
