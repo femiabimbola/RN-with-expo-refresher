@@ -14,7 +14,20 @@ const SignIn = () => {
 
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const submit = () => {};
+  const submit = async() => {
+    if(!form.username || !form.email|| !form.password){
+      Alert.alert('Error', 'Please fill in all the fields')
+    }
+    setIsSubmitting(true)
+    try {
+      await createUser(form.email, form.username, form.password)
+      router.replace('/home')
+    } catch (error) {
+      Alert.alert('Error', error.message)
+    }finally{
+      setIsSubmitting(false)
+    }
+  };
   return (
     <SafeAreaView className="bg-primary h-full">
       <ScrollView>
