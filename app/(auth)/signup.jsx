@@ -5,7 +5,7 @@ import {images} from "../../constants";
 import FormField from "../../components/FormField";
 import CustomButton from "../../components/CustomButton";
 import {Link, router} from "expo-router";
-import { createUser } from "../../lib/appWrite";
+import { createUser, createUser2 } from "../../lib/appWrite";
 
 const SignUp = () => {
   const [form, setForm] = useState({
@@ -22,15 +22,15 @@ const SignUp = () => {
     }
     setIsSubmitting(true)
     try {
-      const result = await createUser(form.email, form.username, form.password)
+      const result = await createUser(form.email, form.password, form.username)
       router.replace('/home')
     } catch (error) {
       Alert.alert('Error', error.message)
     }finally{
       setIsSubmitting(false)
     }
-    
   };
+
   return (
     <SafeAreaView className="bg-primary h-full">
       <ScrollView>
