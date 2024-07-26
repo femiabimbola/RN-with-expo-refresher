@@ -22,6 +22,7 @@ const SignIn = () => {
     setIsSubmitting(true)
     try {
        await signIn(form.email, form.password)
+       //  setUser(result)
       router.replace('/home')
     } catch (error) {
       Alert.alert('Error', error.message)
