@@ -2,6 +2,7 @@ import {StyleSheet, Text, View} from "react-native";
 import {Slot, SplashScreen, Stack} from "expo-router";
 import {useEffect} from "react";
 import {useFonts} from "expo-font";
+import GlobalProvider from "../context/GlobalProvider";
 
 SplashScreen.preventAutoHideAsync();
 
@@ -27,6 +28,8 @@ const RootLayout = () => {
 
   return (
     // disabling the router gtoup
+
+    <GlobalProvider>
     <Stack>
       <Stack.Screen
         name="index"
@@ -45,6 +48,7 @@ const RootLayout = () => {
         options={{headerShown: false}}
       /> */}
     </Stack>
+    </GlobalProvider>
   );
 };
 
