@@ -5,7 +5,7 @@ import {images} from "../../constants";
 import FormField from "../../components/FormField";
 import CustomButton from "../../components/CustomButton";
 import {Link, router} from "expo-router";
-import { createUser, createUser2 } from "../../lib/appWrite";
+import { createUser } from "../../lib/appWrite";
 
 const SignUp = () => {
   const [form, setForm] = useState({
@@ -19,6 +19,8 @@ const SignUp = () => {
   const submit = async() => {
     if(!form.username || !form.email|| !form.password){
       Alert.alert('Error', 'Please fill in all the fields')
+      // fix the email with regex
+      
     }
     setIsSubmitting(true)
     try {
