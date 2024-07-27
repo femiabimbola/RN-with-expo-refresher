@@ -4,6 +4,8 @@ import { SafeAreaView } from "react-native-safe-area-context";
 
 import { images } from "../../constants";
 import SearchInput from "../../components/SearchInput";
+import Trending from "../../components/Trending";
+import EmptyState from "../../components/EmptyState";
 
 const Home = () => {
   return (
@@ -27,15 +29,18 @@ const Home = () => {
               </View>
             </View>
             <SearchInput />
-            <View className="w-full flex-1 pt-5 pb-8">
-              <Text className="text-gray-100"> Lastest Videos</Text>
+            <View className="w-full flex-1 pt-3 pb-8">
+              <Text className="text-gray-100 text-lg font-pregular mb-3"> Lastest Videos</Text>
+              <Trending posts ={[{id: 1}, { id: 2}] ?? []}/>
             </View>
           </View>
         )}
         renderItem={({item}) => (
         <Text className="text-3xl text-white"> {item.id}</Text> 
       )}
-
+      ListEmptyComponent={() => 
+        <EmptyState />
+      }
       />
     
     </SafeAreaView>
