@@ -1,21 +1,26 @@
-import { FlatList, Image, RefreshControl, Text, View } from "react-native";
-import React, { useState } from "react";
+import {  FlatList, Image, RefreshControl, Text, View } from "react-native";
+import React, {  useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 import { images } from "../../constants";
 import SearchInput from "../../components/SearchInput";
 import Trending from "../../components/Trending";
 import EmptyState from "../../components/EmptyState";
+import { getAllPosts } from "../../lib/appWrite";
+import useAppwrite from "../../lib/useAppwrite";
 
 const Home = () => {
+
+  const {data: posts, refetch } = useAppwrite(getAllPosts)
   const [refreshing, setRefreshing] = useState(false);
 
   const onRefresh = async () => {
     setRefreshing(true);
-    // call new vide
+    await refetch()
     setRefreshing(false)
   };
 
+ 
   return (
     <SafeAreaView className="bg-primary h-full">
       <FlatList
@@ -47,7 +52,6 @@ const Home = () => {
             <SearchInput />
             <View className="w-full flex-1 pt-3 pb-8">
               <Text className="text-gray-100 text-lg font-pregular mb-3">
-                {" "}
                 Lastest Videos
               </Text>
               <Trending posts={[{ id: 1 }, { id: 2 }] ?? []} />
