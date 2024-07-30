@@ -8,9 +8,11 @@ import Trending from "../../components/Trending";
 import EmptyState from "../../components/EmptyState";
 import { getAllPosts } from "../../lib/appWrite";
 import useAppwrite from "../../lib/useAppwrite";
+import VideoCard from "../../components/VideoCard";
 
 const Home = () => {
 
+  // Renaming data as post
   const {data: posts, refetch } = useAppwrite(getAllPosts)
   const [refreshing, setRefreshing] = useState(false);
 
@@ -20,24 +22,21 @@ const Home = () => {
     setRefreshing(false)
   };
 
+  
  
   return (
     <SafeAreaView className="bg-primary h-full">
       <FlatList
-        data={[{ id: 1 }, { id: 2 }, { id: 3 }]}
-        keyExtractor={(item) => {
-          item.$id;
-        }}
+        data={posts}
+        keyExtractor={(item) => item.$id}
         ListHeaderComponent={() => (
           <View className="my-6 px-4 space-y-6">
             <View className="justify-between items-start flex-row mb-6">
               <View>
                 <Text className="font-pmedium text-sm text-gray-100">
-                  {" "}
                   Welcome Back
                 </Text>
                 <Text className="text-2xl font-psemibold text-white">
-                  {" "}
                   Femi Abimbola
                 </Text>
               </View>
@@ -59,7 +58,7 @@ const Home = () => {
           </View>
         )}
         renderItem={({ item }) => (
-          <Text className="text-3xl text-white"> {item.id}</Text>
+          <VideoCard video={item}/>
         )}
         ListEmptyComponent={() => (
           <EmptyState title="No videos found" subtitle=" Create a video" />
