@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { View, Text, Image, TouchableOpacity } from "react-native";
+import { icons } from "../constants";
+
 
 const VideoCard = ({
   video: {
@@ -41,7 +43,7 @@ const VideoCard = ({
         </View>
       </View>
       {play ? (
-        <Text> Playing</Text>
+        <Text className="text-white"> Playing</Text>
       ) : (
         <TouchableOpacity
           className="w-full h-60 rounded-xl mt-3 relative justify-center items-center" activeOpacity={0.7}
