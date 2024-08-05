@@ -11,8 +11,6 @@ import EmptyState from "../../components/EmptyState"
 const Search = () => {
   const { query } = useLocalSearchParams();
   // const { data: posts, refetch } = useAppwrite(searchPosts(query));
-
-  console.log(query)
   const { data: posts, refetch } = useAppwrite(() => searchPosts(query));
 
   useEffect(() => {  refetch();
