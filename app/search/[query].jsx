@@ -1,17 +1,21 @@
-import { View, Text } from "react-native";
+import { View, Text, FlatList } from "react-native";
 import React, { useEffect } from "react";
 import { useLocalSearchParams } from "expo-router";
 import { SafeAreaView } from "react-native-safe-area-context";
 import useAppwrite from "../../lib/useAppwrite";
 import { searchPosts } from "../../lib/appWrite";
+import SearchInput from "../../components/SearchInput";
+import VideoCard from "../../components/VideoCard";
+import EmptyState from "../../components/EmptyState"
 
 const Search = () => {
   const { query } = useLocalSearchParams();
   // const { data: posts, refetch } = useAppwrite(searchPosts(query));
+
+  console.log(query)
   const { data: posts, refetch } = useAppwrite(() => searchPosts(query));
 
-  useEffect(() => {
-    refetch();
+  useEffect(() => {  refetch();
   }, [query]);
   return (
     <SafeAreaView className="bg-primary h-full">

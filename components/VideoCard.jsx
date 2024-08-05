@@ -19,7 +19,7 @@ const VideoCard = ({
         <View className="justify-center items-center flex-row flex-1">
           <View className="w-[46px] h-[46px] rounded-lg border border-secondary justify-center items-center p-0.5">
             <Image
-              source={{ url: avatar }}
+              source={{ uri: avatar }}
               className="w-full h-full rounded-lg"
               resizeMode="cover"
             />
