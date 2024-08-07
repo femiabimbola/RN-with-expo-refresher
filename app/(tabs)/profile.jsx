@@ -54,7 +54,6 @@ const Profile = () => {
               <InfoBox
                 title="1.2k"
                 subtitle="followers"
-                containerStyles="mt-5"
                 titleStyle={"text-xl"}
               />
             </View>
