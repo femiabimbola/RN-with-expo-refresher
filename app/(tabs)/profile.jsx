@@ -1,5 +1,4 @@
-import { View, Text, FlatList, TouchableOpacity, Image } from "react-native";
-import React, { useEffect } from "react";
+import { View, FlatList, TouchableOpacity, Image } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import useAppwrite from "../../lib/useAppwrite";
 import { getUserPosts } from "../../lib/appWrite";
@@ -8,6 +7,7 @@ import VideoCard from "../../components/VideoCard";
 import EmptyState from "../../components/EmptyState";
 import { useGlobalContext } from "../../context/GlobalProvider";
 import { icons } from "../../constants";
+import InfoBox from "../../components/InfoBox";
 
 //  We are using global context
 const Profile = () => {
@@ -33,7 +33,30 @@ const Profile = () => {
               />
             </TouchableOpacity>
             <View className="w-16 h-16 border border-secondary rounded-lg justify-center items-center">
-              <Image  source={{ uri: user?.avatar}}/>
+              <Image
+                source={{ uri: user?.avatar }}
+                className="w-[90%] h-[90%] rounded-lg"
+                resizeMode="cover"
+              />
+            </View>
+            <InfoBox
+              title={user?.username}
+              containerStyles="mt-5"
+              titleStyle={"text-lg"}
+            />
+            <View className="mt-5 flex-row">
+              <InfoBox
+                title={posts.length || 0}
+                subtitle="Posts"
+                containerStyles="mr-10"
+                titleStyle={"text-xl"}
+              />
+              <InfoBox
+                title="1.2k"
+                subtitle="followers"
+                containerStyles="mt-5"
+                titleStyle={"text-xl"}
+              />
             </View>
           </View>
         )}
